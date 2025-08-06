@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>যোগাযোগ করুন</title>
+  <style>
+    body {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      margin: 0;
+      background: #fefefc;
+    }
+
+    header, footer {
+      background-color: #2d572c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 12px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 6px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>যোগাযোগ করুন</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">হোম</a></li>
+      <li><a href="about.html">সম্পর্কে</a></li>
+      <li><a href="services.html">সেবা</a></li>
+      <li><a href="virtual-tour.html">ভার্চুয়াল ট্যুর</a></li>
+      <li><a href="events.html">ইভেন্ট</a></li>
+      <li><a href="contact.html">যোগাযোগ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <form method="POST" action="contact_submit.php">
+    <label for="name">আপনার নাম:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">ইমেইল:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">বার্তা:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">পাঠান</button>
+  </form>
+</div>
+
+<footer>
+  <p>&copy; ২০২৫ এগ্রো ফার্ম</p>
+</footer>
+
+</body>
+</html>
+    

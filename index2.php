@@ -266,53 +266,190 @@
 
 
 <!-- Hero Section1 -->
- <!-- Hero Section Start -->
+<!-- HTML -->
 <section class="hero-section">
   <div class="hero-row">
     <div class="hero-col hero-content">
       <div class="hero-label">
-        <svg width="28" height="28" fill="none" style="vertical-align:middle;margin-right:6px;">
+        <svg width="28" height="28" fill="none" class="icon">
           <path d="M14 25v-7M14 18s1.5-4 6-4 6 4 6 4M14 18s-1.5-4-6-4-6 4-6 4M14 25s0 4-4 4-4-4-4-4M14 25s0 4 4 4 4-4 4-4" stroke="#2d572c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="14" cy="9" r="5" stroke="#2d572c" stroke-width="2"/>
         </svg>
-        ফার্ম সম্পর্কে
+        <span>ফার্ম সম্পর্কে</span>
       </div>
       <h1 class="hero-title">আমাদের এগ্রো ফার্ম — অঞ্চলের বৃহত্তম খামার <br> ২০২৩ সাল থেকে বিশ্বস্ত উৎপাদন</h1>
-      <div class="hero-desc">
-        অর্গানিক কৃষি সুস্থ মাটিকে লালন করে, যেখানে কৃষকরা ক্ষতিকর রাসায়নিক ছাড়াই ফসল উৎপাদন করেন — যা নিরাপদ খাদ্য ও পরিবেশের ভারসাম্য নিশ্চিত করে। প্রাকৃতিক পদ্ধতি মাটির উর্বরতা বৃদ্ধি করে, দূষণ কমায় এবং এমন সতেজ ফলন সরবরাহ করে যা মানুষ ও প্রকৃতি—দু’টোকেই সহায়তা করে।
-      </div>
-      <div class="hero-features">
-        <div><span class="hero-check">&#10003;</span> রিয়েল-টাইম ট্র্যাকিং</div>
-        <div><span class="hero-check">&#10003;</span> কাস্টমাইজেবল ফল সমাধান</div>
-        <div><span class="hero-check">&#10003;</span> সময়মত ডেলিভারি</div>
-        <div><span class="hero-check">&#10003;</span> গ্রাহক সহায়তা</div>
-      </div>
+      <p class="hero-desc">
+        অর্গানিক কৃষি সুস্থ মাটিকে লালন করে, যেখানে কৃষকরা ক্ষতিকর রাসায়নিক ছাড়াই ফসল উৎপাদন করেন — যা নিরাপদ খাদ্য ও পরিবেশের ভারসাম্য নিশ্চিত করে।
+      </p>
+      <ul class="hero-features">
+        <li>✅ রিয়েল-টাইম ট্র্যাকিং</li>
+        <li>✅ কাস্টমাইজেবল ফল সমাধান</li>
+        <li>✅ সময়মত ডেলিভারি</li>
+        <li>✅ গ্রাহক সহায়তা</li>
+      </ul>
       <div class="hero-actions">
-        <a href="about.php" class="hero-btn">
-          আমাদের সম্পর্কে আরও জানুন
-          <svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        </a>
-        <span class="hero-phone-group">
-          <span class="hero-phone-icon">
-            <svg width="28" height="28" fill="none"><circle cx="14" cy="14" r="14" fill="#f6e37a"/><path d="M10.5 10.5c.5 2 2 4 4 4.5l1.5-1.5c.2-.2.5-.2.7 0l2 2c.2.2.2.5 0 .7l-1 1c-.3.3-.8.4-1.2.3-2.5-.7-4.5-2.7-5.2-5.2-.1-.4 0-.9.3-1.2l1-1c.2-.2.5-.2.7 0l2 2c.2.2.2.5 0 .7l-1.5 1.5z" stroke="#2d572c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
+        <a href="about.php" class="hero-btn">আমাদের সম্পর্কে আরও জানুন</a>
+        <div class="hero-phone-group">
+          <svg width="28" height="28" fill="none" class="phone-icon">
+            <circle cx="14" cy="14" r="14" fill="#f6e37a"/>
+            <path d="M10.5 10.5c.5 2 2 4 4 4.5l1.5-1.5c.2-.2.5-.2.7 0l2 2c.2.2.2.5 0 .7l-1 1c-.3.3-.8.4-1.2.3-2.5-.7-4.5-2.7-5.2-5.2-.1-.4 0-.9.3-1.2l1-1c.2-.2.5-.2.7 0l2 2c.2.2.2.5 0 .7l-1.5 1.5z" stroke="#2d572c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           <span class="hero-phone-label">ফোন:</span>
           <span class="hero-phone-number">+880 1734898751</span>
-        </span>
+        </div>
       </div>
     </div>
     <div class="hero-col hero-image-col">
       <div class="hero-stats-card">
-        <div class="hero-stats-label">আস্থা অর্জনে প্রতিশ্রুতিবদ্ধ</div>
+        <h3 class="hero-stats-label">আস্থা অর্জনে প্রতিশ্রুতিবদ্ধ</h3>
         <div class="hero-stats-number">1000+</div>
-        <div class="hero-stats-desc">
-          প্রাকৃতিক পদ্ধতিতে উৎপাদন, মাটি ও পানির সুরক্ষায় অঙ্গীকারবদ্ধ।
-        </div>
+        <p class="hero-stats-desc">প্রাকৃতিক পদ্ধতিতে উৎপাদন, মাটি ও পানির সুরক্ষায় অঙ্গীকারবদ্ধ।</p>
       </div>
       <img src="Gallery/farm2.jpg" alt="Organic Farm" class="hero-main-image">
     </div>
   </div>
 </section>
+<style>
+/* CSS */
+.hero-section {
+  padding: 60px 20px;
+  background: linear-gradient(to right, #f0fdf4, #e6ffe6);
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 1.2s ease-in;
+}
+
+.hero-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-col {
+  flex: 1 1 45%;
+  margin: 20px;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #2d572c;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.hero-title {
+  font-size: 32px;
+  color: #1b3b1b;
+  margin-bottom: 20px;
+  animation: slideUp 1s ease-out;
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.hero-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.hero-features li {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2d572c;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #2d572c;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #1f3f1f;
+}
+
+.hero-phone-group {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 16px;
+  color: #2d572c;
+}
+
+.phone-icon {
+  margin-right: 8px;
+}
+
+.hero-stats-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  animation: zoomIn 0.8s ease;
+}
+
+.hero-stats-label {
+  font-size: 18px;
+  color: #2d572c;
+  margin-bottom: 10px;
+}
+
+.hero-stats-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1b3b1b;
+}
+
+.hero-stats-desc {
+  font-size: 14px;
+  color: #555;
+}
+
+.hero-main-image {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {transform: translateY(30px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.8); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
+
 <!-- Hero Section End -->
 
 
@@ -320,19 +457,20 @@
 
 
 <!-- Agriculture Products -->
-   <section class="main-section">
+<!-- HTML -->
+<section class="main-section">
   <div class="product-tabs">
-    <button class="product-tab active">কৃষিপণ্য</button>
+    <button class="product-tab active" onclick="switchTab(0)">কৃষিপণ্য</button>
     <div class="tab-divider"></div>
-    <button class="product-tab">শুদ্ধ গরুর দুধ</button>
+    <button class="product-tab" onclick="switchTab(1)">শুদ্ধ গরুর দুধ</button>
     <div class="tab-divider"></div>
-    <button class="product-tab">কন্দ ও ফল</button>
-
+    <button class="product-tab" onclick="switchTab(2)">কন্দ ও ফল</button>
   </div>
-  <div class="product-content-row">
+
+  <div class="product-content-row fade-in">
     <div class="product-info">
       <div class="product-icon-bg">
-        <!-- Plant SVG Icon -->
+        <!-- SVG Icon -->
         <svg viewBox="0 0 48 48" fill="none">
           <path d="M24 36V28M24 28C24 28 25.5 24 30 24C34.5 24 36 28 36 28M24 28C24 28 22.5 24 18 24C13.5 24 12 28 12 28M24 36C24 36 24 40 20 40C16 40 16 36 16 36M24 36C24 36 24 40 28 40C32 40 32 36 32 36" stroke="#2d572c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="24" cy="16" r="6" stroke="#2d572c" stroke-width="2.5"/>
@@ -341,7 +479,8 @@
       <div>
         <div class="product-title">কৃষিপণ্য!</div>
         <div class="product-desc">
-          উইন্ডেল বেরি একবার বলেছিলেন, “খাওয়াটা নিজেই একটি কৃষিকর্ম।” <br>আমাদের লক্ষ্য হলো—শিল্পভিত্তিক খাবারের বিকল্প হিসেবে স্বাস্থ্যকর, সতেজ ও প্রাকৃতিক খাদ্য সরবরাহ করে খাদ্যব্যবস্থায় পরিবর্তন আনা।
+          উইন্ডেল বেরি একবার বলেছিলেন, “খাওয়াটা নিজেই একটি কৃষিকর্ম।” <br>
+          আমাদের লক্ষ্য হলো—শিল্পভিত্তিক খাবারের বিকল্প হিসেবে স্বাস্থ্যকর, সতেজ ও প্রাকৃতিক খাদ্য সরবরাহ করে খাদ্যব্যবস্থায় পরিবর্তন আনা।
         </div>
         <a href="virtual-tour.php" class="details-btn">
           ডিটেইলস দেখুন
@@ -350,79 +489,133 @@
       </div>
     </div>
     <div class="product-image">
-      <img src="Gallery/hero2.jpg" alt="Agriculture Products">
+      <img src="Gallery/hero2.jpg" alt="Agriculture Products" class="animated-img">
     </div>
   </div>
 </section>
-<!-- Success Story -->
 <style>
-    .success-section {
-        background: linear-gradient(135deg, #e0f7f4, #f3fff0);
-        padding: 50px 20px;
-        text-align: center;
-        font-family: 'Noto Sans Bengali', sans-serif;
-        animation: fadeIn 0.8s ease;
-    }
+/* CSS */
+.main-section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #f0f4f3, #e8f5e9);
+  animation: fadeIn 1s ease-in;
+}
 
-    .success-section h2 {
-        font-size: 2rem;
-        color: #00796b;
-        margin-bottom: 15px;
-    }
+.product-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 
-    .success-section p {
-        font-size: 1.1rem;
-        color: #444;
-        max-width: 800px;
-        margin: 0 auto 40px;
-        line-height: 1.6;
-    }
+.product-tab {
+  background: #2d572c;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  margin: 0 5px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-    .success-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 20px;
-        max-width: 900px;
-        margin: 0 auto;
-    }
+.product-tab:hover {
+  background: #3e7c45;
+}
 
-    .stat-card {
-        background: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        animation: slideUp 0.6s ease forwards;
-        opacity: 0;
-    }
+.product-tab.active {
+  background: #1b3f1a;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-    }
+.tab-divider {
+  width: 2px;
+  height: 24px;
+  background: #ccc;
+}
 
-    .stat-number {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #00796b;
-        margin-bottom: 8px;
-    }
+.product-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 
-    .stat-label {
-        font-size: 1rem;
-        color: #555;
-    }
+.product-info {
+  flex: 1;
+  animation: slideInLeft 1s ease;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+.product-icon-bg svg {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
 
-    @keyframes slideUp {
-        from { transform: translateY(20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-</style>
+.product-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2d572c;
+  margin-bottom: 10px;
+}
+
+.product-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.details-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2d572c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.details-btn:hover {
+  background: #3e7c45;
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  animation: slideInRight 1s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}</style>
 
 <div class="success-section" id="success">
     <h2>সাফল্যের গল্প</h2>

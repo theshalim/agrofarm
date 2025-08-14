@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <style>
         body { font-family: Arial, sans-serif; background:#f4f7f6; margin:0; padding:0; }
         .container { max-width:600px; margin:50px auto; padding:20px; background:#fff; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-        h1 { text-align:center; color:teal; margin-bottom:25px;}
+        h2 { text-align:center; color:teal; margin-bottom:25px;}
         form { display:flex; flex-direction:column; gap:15px;}
         label { font-weight:600;}
         input, select, textarea { padding:10px; border-radius:5px; border:1px solid #ccc; font-size:15px; width:100%;}
@@ -76,37 +76,37 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <?php include 'adminHeader.php'; ?>
 
 <div class="container">
-    <h1>Edit User</h1>
+    <h2>ইউজার ইনফরমেশন এডিট করুন।</h2>
 
     <?php if(!empty($success)) echo "<div class='message success'>$success</div>"; ?>
 
     <form method="post">
-        <label>Full Name</label>
+        <label>ইম্প্লয়ীর নাম</label>
         <input type="text" name="name" value="<?= htmlspecialchars($user['name']) ?>" required>
 
-        <label>Email</label>
+        <label>ইমেইল</label>
         <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
 
-        <label>Phone</label>
+        <label>ফোন</label>
         <input type="text" name="phone" value="<?= htmlspecialchars($user['phone']) ?>">
 
-        <label>Reason</label>
+        <label>কারণ</label>
         <textarea name="reason"><?= htmlspecialchars($user['reason']) ?></textarea>
 
         <?php if($user_id != 1): ?>
-            <label>Role</label>
+            <label>রোল</label>
             <select name="role">
                 <option value="user" <?= $user['role']==='user'?'selected':'' ?>>User</option>
                 <option value="admin" <?= $user['role']==='admin'?'selected':'' ?>>Admin</option>
             </select>
         <?php else: ?>
-            <p><strong>Main Admin role cannot be changed</strong></p>
+            <p><strong>মেইন অ্যাডমিনের রোল পরিবর্তন সম্ভব নয়।</strong></p>
         <?php endif; ?>
 
-        <button type="submit">Update User</button>
+        <button type="submit">ইউজার আপডেট করুন</button>
     </form>
 
-    <p style="text-align:center; margin-top:15px;"><a href="users.php">Back to Users List</a></p>
+    <p style="text-align:center; margin-top:15px; text-decoration: none;"><a href="users.php">ব্যবহারকারীদের তালিকায় ফিরে যান!</a></p>
 </div>
 
 </body>

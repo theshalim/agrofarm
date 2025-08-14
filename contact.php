@@ -25,22 +25,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="bg-light">
     <div class="container mt-5">
-        <h2 class="mb-4">যোগাযোগ করুন</h2>
+        <h2 class="mb-4">অ্যাডমিনের যোগাযোগ করুন</h2>
         <?php if (isset($success)) echo "<div class='alert alert-success'>$success</div>"; ?>
         <form method="POST" class="bg-white p-4 rounded shadow">
             <div class="mb-3">
                 <label>আপনার নাম</label>
-                <input type="text" name="name" class="form-control" required>
+                <input type="text" placeholder="আপনার নাম লিখুন...." name="name" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label>ইমেইল</label>
-                <input type="email" name="email" class="form-control" required>
+                <label>ইমেইল দিন</label>
+                <input type="email" placeholder="আপনার ইমেইল লিখুন...." name="email" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label>মেসেজ</label>
-                <textarea name="message" rows="4" class="form-control" required></textarea>
+                <label>ম্যাসেজ লিখুন</label>
+                <textarea name="message" placeholder="ম্যাসেজ বক্সে বিস্তারিত লিখুন....." rows="4" class="form-control" required></textarea>
             </div>
-            <button type="submit" class="btn btn-success">পাঠান</button>
+            <button type="submit" class="btn btn-success">ম্যাসেজ পাঠান!</button>
         </form>
     </div><br><br>
     

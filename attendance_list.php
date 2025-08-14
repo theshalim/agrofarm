@@ -124,4 +124,4 @@ $result = $conn->query($sql);
 </div>
 
 </body>
-</html>
+</html><?php include 'footer.php'; ?>

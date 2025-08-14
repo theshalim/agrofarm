@@ -152,18 +152,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <div class="container">
-        <h1 class="page-heading">লগইন পোর্টাল</h1>
+        <h1 class="page-heading">ইউজার লগইন পোর্টাল</h1>
         <form class="login-form" action="#" method="post" autocomplete="off">
-            <label for="email">ইমেইল</label>
+            <label for="email">ইমেইল দিন</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="password">পাসওয়ার্ড</label>
+            <label for="password">পাসওয়ার্ড দিন</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit" class="login-btn">লগইন</button>
+            <button type="submit" class="login-btn">লগইন করুন!</button>
         </form>
         <div class="login-extra">
-            <p>নতুন সদস্য? <a href="register.php">নতুন রেজিস্ট্রেশন করুন</a></p>
+            <p>নতুন সদস্য হতে চান? <a href="register.php">নতুন রেজিস্ট্রেশন করুন</a></p>
             <p>পাসওয়ার্ড ভুলে গেছেন? <a href="contact.php">অ্যাডমিনের সাথে যোগাযোগ করুন</a></p>
         </div>
     </div>

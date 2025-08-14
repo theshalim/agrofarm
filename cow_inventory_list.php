@@ -116,3 +116,4 @@ $total_maintain = $total_feed + $total_medicine + $total_labor + $total_other;
 
 </body>
 </html>
+<?php include 'footer.php'; ?>

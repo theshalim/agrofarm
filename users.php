@@ -61,14 +61,14 @@ $users = $stmt->fetchAll();
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>পূর্ণ নাম</th>
+                <th>আইডি</th>
+                <th>সম্পূর্ণ নাম</th>
                 <th>ইমেইল</th>
                 <th>মোবাইল</th>
-                <th>কারণ</th>
+                <th>রেজিস্ট্রেশনের কারণ</th>
                 <th>বর্তমান রোল</th>
                 <th>রোল পরিবর্তন</th>
-                <th>Edit</th>
+                <th>এডিট করুন</th>
             </tr>
         </thead>
         <tbody>

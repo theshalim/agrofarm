@@ -294,7 +294,7 @@
       </nav>
   </div>
   <div class="header-right">
-      <a href="login.php">লগইন</a>
+      <a href="login.php">লগইন | রেজিস্টার</a>
       <div class="profile-icon"><i class="bi bi-person-fill"></i></div>
   </div>
 </header>

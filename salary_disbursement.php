@@ -1,25 +1,34 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "", "agrofarm"); // <-- Update DB name
+
+// ✅ Database Connection (Error Handling সহ)
+$conn = new mysqli("localhost", "root", "", "agrofarm");
 if ($conn->connect_error) {
     die("Database Connection Failed: " . $conn->connect_error);
 }
 
-include 'adminHeader.php';
+// ✅ Secure Include
+require_once 'adminHeader.php';
 
-// Default filter to current year and month
+// ✅ Default filter values (Current Year & Month)
 $selected_year = date('Y');
 $selected_month = date('n');
 
+// ✅ Sanitize GET input
 if (isset($_GET['year']) && isset($_GET['month'])) {
-    $selected_year = intval($_GET['year']);
-    $selected_month = intval($_GET['month']);
+    $year = filter_var($_GET['year'], FILTER_VALIDATE_INT);
+    $month = filter_var($_GET['month'], FILTER_VALIDATE_INT);
+
+    if ($year && $month >= 1 && $month <= 12) {
+        $selected_year = $year;
+        $selected_month = $month;
+    }
 }
 
-// Get total days in the selected month
+// ✅ Get total days in month safely
 $total_days_in_month = cal_days_in_month(CAL_GREGORIAN, $selected_month, $selected_year);
 
-// Fetch attendance with salary data
+// ✅ Prepare statement to prevent SQL injection
 $sql = "SELECT ei.id, ei.full_name, ei.phone, ei.salary_amount, 
                IFNULL(ea.attendance_days, 0) AS attendance_days, 
                IFNULL(ea.leave_days, 0) AS leave_days, 
@@ -27,140 +36,128 @@ $sql = "SELECT ei.id, ei.full_name, ei.phone, ei.salary_amount,
         FROM employee_info ei
         LEFT JOIN employee_attendance ea
         ON ei.id = ea.employee_id 
-           AND ea.year = $selected_year 
-           AND ea.month = $selected_month
+           AND ea.year = ? 
+           AND ea.month = ?
         ORDER BY ei.full_name";
 
-$result = $conn->query($sql);
-
-// Check query error
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ii", $selected_year, $selected_month);
+$stmt->execute();
+$result = $stmt->get_result();
 if (!$result) {
     die("SQL Error: " . $conn->error);
 }
-?>
 
+// ✅ Month array
+$months = [
+    1=>"January", 2=>"February", 3=>"March", 4=>"April", 5=>"May", 6=>"June",
+    7=>"July", 8=>"August", 9=>"September", 10=>"October", 11=>"November", 12=>"December"
+];
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Salary Disbursement</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background: #f9fdfd;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        h2 {
-            color: teal;
-            margin-bottom: 30px;
-        }
-        .table thead {
-            background: #008080;
-            color: white;
-        }
+        body { background: #f9fdfd; }
+        .container { margin-top: 50px; }
+        h2 { color: teal; margin-bottom: 30px; }
+        .table thead { background: #008080; color: white; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Salary Disbursement</h2>
+    <h2>স্যালারী ডিসবার্সমেন্ট করুন!</h2>
 
-    <!-- Filter Form -->
+    <!-- ✅ Filter Form -->
     <form method="GET" class="row g-3 mb-4">
         <div class="col-md-3">
-            <label class="form-label">Year</label>
-            <select name="year" class="form-select">
+            <label class="form-label">সালঃ</label>
+            <select name="year" class="form-select" required>
                 <?php
                 for ($y = 2023; $y <= date('Y') + 1; $y++) {
                     $sel = ($y == $selected_year) ? 'selected' : '';
-                    echo "<option value='$y' $sel>$y</option>";
+                    echo "<option value='" . htmlspecialchars($y) . "' $sel>" . htmlspecialchars($y) . "</option>";
                 }
                 ?>
             </select>
         </div>
         <div class="col-md-3">
-            <label class="form-label">Month</label>
-            <select name="month" class="form-select">
+            <label class="form-label">মাসঃ</label>
+            <select name="month" class="form-select" required>
                 <?php
-                $months = [
-                    1=>"January", 2=>"February", 3=>"March", 4=>"April", 5=>"May", 6=>"June",
-                    7=>"July", 8=>"August", 9=>"September", 10=>"October", 11=>"November", 12=>"December"
-                ];
                 foreach ($months as $num => $name) {
                     $sel = ($num == $selected_month) ? 'selected' : '';
-                    echo "<option value='$num' $sel>$name</option>";
+                    echo "<option value='" . htmlspecialchars($num) . "' $sel>" . htmlspecialchars($name) . "</option>";
                 }
                 ?>
             </select>
         </div>
         <div class="col-md-3 align-self-end">
-            <button type="submit" class="btn btn-success">Filter</button>
+            <button type="submit" class="btn btn-success">ফিল্টার করুন</button>
         </div>
     </form>
 
-    <!-- Salary Table -->
+    <!-- ✅ Salary Table -->
     <table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Year</th>
-            <th>Month</th>
-            <th>Employee</th>
-            <th>Phone</th>
-            <th>Basic Salary</th>
-            <th>Days in Month</th>
-            <th>Attendance</th>
-            <th>Leave</th>
-            <th>Absent</th>
-            <th>Per Day</th>
-            <th>Payable Salary</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-    $i = 1;
-    $grand_total = 0;
-    $months = [
-        1=>"January", 2=>"February", 3=>"March", 4=>"April", 5=>"May", 6=>"June",
-        7=>"July", 8=>"August", 9=>"September", 10=>"October", 11=>"November", 12=>"December"
-    ];
-    while ($row = $result->fetch_assoc()) {
-        $basic_salary = $row['salary_amount'];
-        $attendance = (int)$row['attendance_days'];
-        $leave = (int)$row['leave_days'];
-        $absent = (int)$row['absent_days'];
+        <thead>
+            <tr>
+                <th>আইডি</th>
+                <th>সাল</th>
+                <th>মাস</th>
+                <th>কর্মচারী</th>
+                <th>ফোন</th>
+                <th>বেসিক বেতন</th>
+                <th>মাসে দিন</th>
+                <th>উপস্থিতি</th>
+                <th>ছুটি</th>
+                <th>অনুপস্থিত</th>
+                <th>প্রতিদিন</th>
+                <th>পে করার জন্য বেতন</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        $i = 1;
+        $grand_total = 0;
+        while ($row = $result->fetch_assoc()) {
+            $basic_salary = (float)$row['salary_amount'];
+            $attendance = (int)$row['attendance_days'];
+            $leave = (int)$row['leave_days'];
+            $absent = (int)$row['absent_days'];
 
-        $total_working_days = $attendance + $leave;
-        $per_day_salary = ($basic_salary > 0 && $total_days_in_month > 0) 
-            ? ($basic_salary / $total_days_in_month) : 0;
-        $payable_salary = round($per_day_salary * $total_working_days);
+            $total_working_days = $attendance + $leave;
+            $per_day_salary = ($basic_salary > 0 && $total_days_in_month > 0) 
+                ? ($basic_salary / $total_days_in_month) : 0;
+            $payable_salary = round($per_day_salary * $total_working_days);
 
-        $grand_total += $payable_salary;
+            $grand_total += $payable_salary;
 
-        echo "<tr>
-            <td>{$i}</td>
-            <td>{$selected_year}</td>
-            <td>{$months[$selected_month]}</td>
-            <td>{$row['full_name']}</td>
-            <td>{$row['phone']}</td>
-            <td>৳{$basic_salary}</td>
-            <td>{$total_days_in_month}</td>
-            <td>{$attendance}</td>
-            <td>{$leave}</td>
-            <td>{$absent}</td>
-            <td>৳" . round($per_day_salary, 2) . "</td>
-            <td><strong>৳{$payable_salary}</strong></td>
-        </tr>";
-        $i++;
-    }
-    ?>
-    </tbody>
-    <tfoot>
-        <tr>
-            <th colspan="11" class="text-end">Total Payable Salary:</th>
-            <th>৳<?php echo $grand_total; ?></th>
-        </tr>
+            echo "<tr>
+                <td>" . $i++ . "</td>
+                <td>" . htmlspecialchars($selected_year) . "</td>
+                <td>" . htmlspecialchars($months[$selected_month]) . "</td>
+                <td>" . htmlspecialchars($row['full_name']) . "</td>
+                <td>" . htmlspecialchars($row['phone']) . "</td>
+                <td>৳" . number_format($basic_salary, 2) . "</td>
+                <td>" . htmlspecialchars($total_days_in_month) . "</td>
+                <td>" . htmlspecialchars($attendance) . "</td>
+                <td>" . htmlspecialchars($leave) . "</td>
+                <td>" . htmlspecialchars($absent) . "</td>
+                <td>৳" . number_format($per_day_salary, 2) . "</td>
+                <td><strong>৳" . number_format($payable_salary, 2) . "</strong></td>
+            </tr>";
+        }
+        ?>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="11" class="text-end">টোটাল পে করার জন্য বেতনঃ</th>
+                <th>৳<?php echo number_format($grand_total, 2); ?></th>
+            </tr>
+        </tfoot>
     </table>
 </div>
 

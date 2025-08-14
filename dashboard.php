@@ -79,17 +79,18 @@ $user = $_SESSION['user'];
 <div class="dashboard-container">
     <div class="grid">
         <div class="card"><a href="inventory.php">ইনভেন্টরি ম্যানেজমেন্ট</a></div>
-        <div class="card"><a href="counts.php">ড্যাশবোর্ড কাউন্ট</a></div>
-        <div class="card"><a href="accounting.php">হিসাবরক্ষণ</a></div>
-        <div class="card"><a href="employees.php">কর্মচারী ব্যবস্থাপনা</a></div>
-        <div class="card"><a href="reports.php">রিপোর্ট</a></div>
-        <div class="card"><a href="e-commerce-dashboard.php">পণ্যসমূহ</a></div>
-        <div class="card"><a href="users.php">ব্যবহারকারী</a></div>
-        <div class="card"><a href="notifications.php">নোটিফিকেশন</a></div>
-        <div class="card"><a href="backup.php">ব্যাকআপ/রিস্টোর</a></div>
-        <div class="card"><a href="settings.php">সেটিংস</a></div>
+        <div class="card"><a href="counts.php">হোম পেজের কাউন্ট</a></div>
+        <div class="card"><a href="accounting.php">অ্যকাউন্টিং ম্যানেজমেন্ট</a></div>
+        <div class="card"><a href="employees.php">ইম্প্লয়ী ম্যানেজমেন্ট</a></div>
+        <div class="card"><a href="reports.php">রিপোর্ট দেখুন</a></div>
+        <div class="card"><a href="e-commerce-dashboard.php">ইকমার্স পণ্যসমূহ</a></div>
+        <div class="card"><a href="users.php">ইউজার ম্যানেজমেন্ট</a></div>
+        <div class="card"><a href="notifications.php">ম্যাসেজ দেখুন</a></div>
+        <div class="card"><a href="backup.php">ব্যাকআপ/রিস্টোর নিন</a></div>
+        <div class="card"><a href="settings.php">সেটিংস ঠিক করুন</a></div>
     </div>
 </div>
 
 </body>
 </html>
+<?php include 'footer.php'; ?>

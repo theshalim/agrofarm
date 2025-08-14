@@ -150,7 +150,7 @@ button {
   <?php if (!empty($error)) echo "<div class='error'>$error</div>"; ?>
 
   <form method="post" autocomplete="off">
-    <label for="name">পূর্ণ নাম</label>
+    <label for="name">সম্পূর্ণ নাম</label>
     <input type="text" id="name" name="name" required>
 
     <label for="phone">মোবাইল নম্বর</label>

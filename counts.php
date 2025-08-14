@@ -91,3 +91,4 @@ $data = $stmt->fetch();
 </div>
 
 
+<?php include 'footer.php'; ?>

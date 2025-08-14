@@ -1,20 +1,9 @@
 <?php
 session_start();
-
-// ✅ Check if user is logged in
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
 }
-
-// ✅ Check if user is admin
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-    // Normal users cannot access admin dashboard
-    header("Location: user_dashboard.php");
-    exit();
-}
-
-$user = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +19,11 @@ $user = $_SESSION['user'];
             padding: 0;
         }
 
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
         .dashboard-container {
             max-width: 1200px;
             margin: 30px auto;

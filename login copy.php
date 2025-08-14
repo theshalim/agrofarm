@@ -3,44 +3,28 @@ session_start();
 require 'php/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // user fetch by email
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
-        // Check if user is inactive
-        if ($user['role'] === 'inactive') {
-            echo "<p class='error-msg'>আপনার একাউন্ট বর্তমানে নিষ্ক্রিয়। অ্যাডমিনের সাথে যোগাযোগ করুন।</p>";
-        } else {
-            // ✅ store user info in session
-            $_SESSION['user'] = $user;
-            $_SESSION['user_role'] = $user['role'];
-
-            // ✅ role-based redirect
-            if ($user['role'] === 'admin') {
-                $_SESSION['admin_logged_in'] = true;
-                $redirect = 'dashboard.php'; // admin dashboard
-            } else {
-                $_SESSION['admin_logged_in'] = false;
-                $redirect = 'user_dashboard.php'; // normal user dashboard
-            }
-
-            echo "<p class='success-msg'>লগইন সফল! কিছুক্ষণের মধ্যে আপনি রিডিরেক্ট হবেন...</p>";
-            echo "<script>
-                setTimeout(function() {
-                    window.location.href = '$redirect';
-                }, 500);
-            </script>";
-        }
+        $_SESSION['user'] = $user;
+        $_SESSION['admin_logged_in'] = true;// ✅ এই লাইনটি যোগ করা হয়েছে
+        echo "<p class='success-msg'>লগইন সফল! কিছুক্ষণের মধ্যে আপনি রিডিরেক্ট হবেন...</p>";
+        echo "<script>
+            setTimeout(function() {
+                window.location.href = 'dashboard.php';
+            }, 1500);
+        </script>";
     } else {
         echo "<p class='error-msg'>ইমেইল অথবা পাসওয়ার্ড ভুল!</p>";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>

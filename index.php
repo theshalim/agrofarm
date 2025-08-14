@@ -973,7 +973,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <div class="contact-info">
         <p><strong>ঠিকানা:</strong> গ্রাম-নবীনগর, উপজেলা-শিবপুর, জেলা-নরসিংদী</p>
-        <p><strong>ফোন:</strong> +880 173489751</p>
+        <p><strong>ফোন:</strong> ০১৭৩৪৮৯৮৭৫১</p>
         <p><strong>ইমেইল:</strong> info@agrofarm.com</p>
     </div>
 </div>
